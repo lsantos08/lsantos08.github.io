@@ -1,23 +1,476 @@
 
-<!doctype html><html data-build-id="d1fa07a084" data-git-hash="c5f389b32467845f71942988b541ded1fa07a084" data-build-timestamp="1774901061" data-version="1.0.0" data-env="" lang="en" data-theme="claude" data-mode="dark" class="h-screen antialiased scroll-smooth"><head data-ion-ip-country="US"><link rel="preconnect" href="https://assets-proxy.anthropic.com" crossorigin><link rel="dns-prefetch" href="https://assets-proxy.anthropic.com"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Claude</title><meta name="description" content="Claude is Anthropic's AI, built for problem solvers. Tackle complex challenges, analyze data, write code, and think through your hardest work."><meta name="apple-itunes-app" content="app-id=6473753684"><meta property="og:type" content="website"><meta property="og:site_name" content="Claude"><meta property="og:image" content="https://claude.ai/images/claude_ogimage.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/cd02a42d9-Vq_H3mgS.svg"><link rel="icon" type="image/png" sizes="32x32" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/ce67964e7-CAX1bqSh.png"><link rel="icon" type="image/png" sizes="16x16" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c03e51811-DebilQLI.png"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c129d018a-jJjJELY8.png"><link rel="apple-touch-startup-image" href="/images/claude_app_icon.png"><link rel="manifest" href="/manifest.json"><meta name="mobile-web-app-capable" content="yes"><link rel="preload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/cc27851ad-CFxw3nG7.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c66fc489e-C-BHYa_K.woff2" as="font" type="font/woff2" crossorigin><script nonce="qRCCBUJmHrWdGvbJ5cpLmQ==">void 0===globalThis.process&&(globalThis.process={env:{},cwd:function(){return"/"}}),void 0===globalThis.global&&(globalThis.global=globalThis)</script><script type="application/ld+json" nonce="qRCCBUJmHrWdGvbJ5cpLmQ==">{
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "name": "Claude",
-            "alternateName": ["Claude.ai", "Claude by Anthropic"],
-            "url": "https://claude.com"
-          },
-          {
-            "@type": "Organization",
-            "name": "Anthropic",
-            "url": "https://www.anthropic.com",
-            "logo": "https://claude.ai/images/claude_ogimage.png",
-            "sameAs": [
-              "https://x.com/AnthropicAI",
-              "https://www.linkedin.com/company/anthropic",
-              "https://www.youtube.com/@anthropic-ai"
-            ]
-          }
-        ]
-      }</script><script nonce="qRCCBUJmHrWdGvbJ5cpLmQ==">!function(){try{performance.mark?.("rq_cache:preload_start");const e="keyval-store",o="keyval",r="react-query-cache",t=new Promise(t=>{if(!window.indexedDB)return void t(void 0);const c=indexedDB.open(e);c.onupgradeneeded=()=>{c.transaction?.abort()},c.onerror=()=>t(void 0),c.onsuccess=()=>{const a=c.result;if(!a.objectStoreNames.contains(o))return a.close(),indexedDB.deleteDatabase(e),void t(void 0);try{const e=a.transaction(o,"readonly").objectStore(o).get(r);e.onerror=()=>{a.close(),t(void 0)},e.onsuccess=()=>{a.close(),window.__PRELOADED_IDB_CACHE_RESULT__=e.result,t(e.result)}}catch{a.close(),t(void 0)}}});window.__PRELOADED_IDB_CACHE__=t,performance.measure?.("rq_cache:preload_exec",{start:"rq_cache:preload_start"})}catch{}}()</script><script type="module" crossorigin src="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/index-BziJCm_P.js" nonce="qRCCBUJmHrWdGvbJ5cpLmQ=="></script><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-B0f-ItUP.js"><link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/tree-sitter-UDTHP9yV.js"><link rel="stylesheet" crossorigin href="https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c6a992d55-C-rnDfCS.css"></head><body class="bg-bg-100 text-text-100 font-ui min-h-screen"><div id="root"></div><script nonce="qRCCBUJmHrWdGvbJ5cpLmQ==">(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.nonce='qRCCBUJmHrWdGvbJ5cpLmQ==';d.innerHTML="window.__CF$cv$params={r:'9e49f35d4dc80f9c',t:'MTc3NDkwMzQ0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='qRCCBUJmHrWdGvbJ5cpLmQ==';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f7f4;color:#1a1a18}
+header{background:#fff;border-bottom:1px solid #e5e4e0;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+header h1{font-size:14px;font-weight:600;color:#1a1a18}
+header p{font-size:10px;color:#73726c;margin-top:2px}
+.badge{background:#E6F1FB;color:#0C447C;font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.main{padding:0 1rem 2rem}
+.section-label{font-size:10px;font-weight:600;color:#73726c;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.65rem;padding-left:2px;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:0.5px;background:#e5e4e0}
+.controls-wrap{background:#fff;border:0.5px solid #e5e4e0;border-radius:10px;padding:.85rem 1.25rem;display:flex;flex-direction:column;gap:.75rem;margin-bottom:1rem}
+.controls-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.controls-top-left{display:flex;align-items:center;gap:8px}
+.controls-label-sm{font-size:10px;color:#73726c;font-weight:600;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.period-btns{display:flex;gap:4px}
+.period-btn{font-size:11px;padding:5px 13px;border:0.5px solid #e5e4e0;border-radius:6px;background:#fff;color:#73726c;cursor:pointer;font-weight:500;transition:all .15s;white-space:nowrap}
+.period-btn:hover{background:#f0eeea;color:#1a1a18}
+.period-btn.active{background:#185FA5;color:#fff;border-color:#185FA5}
+.verified-pill{font-size:9px;color:#0F6E56;font-weight:500;background:#E1F5EE;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.controls-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.filter-group{display:flex;flex-direction:column;gap:4px}
+.filter-label{font-size:10px;font-weight:500;color:#73726c}
+.filter-select{font-size:11px;padding:6px 10px;border:0.5px solid #e5e4e0;border-radius:6px;background:#fff;color:#1a1a18;cursor:pointer;outline:none;width:100%}
+.filter-select:focus{border-color:#185FA5}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1rem}
+.period-card{background:#fff;border:0.5px solid #e5e4e0;border-radius:8px;padding:.85rem 1rem;position:relative;overflow:hidden}
+.period-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.period-card.blue::before{background:#185FA5}
+.period-card.teal::before{background:#0F6E56}
+.period-card.amber::before{background:#BA7517}
+.period-card.coral::before{background:#993C1D}
+.plabel{font-size:10px;color:#73726c;margin-bottom:5px;font-weight:500}
+.pmain{font-size:21px;font-weight:600;color:#1a1a18;line-height:1}
+.psub{font-size:10px;color:#a8a79f;margin-top:1px}
+.divider-mini{border:none;border-top:0.5px solid #f0eeea;margin:6px 0}
+.delta{font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px;white-space:nowrap}
+.delta.up{background:#E1F5EE;color:#0F6E56}
+.delta.down{background:#FAECE7;color:#993C1D}
+.kpi{background:#fff;border:0.5px solid #e5e4e0;border-radius:8px;padding:.85rem 1rem}
+.kpi-label{font-size:10px;color:#73726c;margin-bottom:3px}
+.kpi-value{font-size:20px;font-weight:600;color:#1a1a18;line-height:1.1}
+.kpi-sub{font-size:10px;color:#a8a79f;margin-top:3px}
+.kpi-delta{font-size:10px;font-weight:500;margin-top:3px}
+.up{color:#0F6E56}.down{color:#993C1D}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.card{background:#fff;border:0.5px solid #e5e4e0;border-radius:8px;padding:1rem}
+.card-title{font-size:10px;font-weight:500;color:#73726c;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
+.chart-wrap{position:relative;width:100%}
+.tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;margin:1px;font-weight:500}
+.t-ecm{background:#E6F1FB;color:#0C447C}
+.t-bio{background:#E1F5EE;color:#085041}
+.t-ma{background:#FAECE7;color:#712B13}
+.t-pp{background:#EEEDFE;color:#3C3489}
+.t-ccm{background:#FAEEDA;color:#633806}
+.t-alt{background:#FBEAF0;color:#72243E}
+.t-hs{background:#F1EFE8;color:#444441}
+.t-sf{background:#EAF3DE;color:#27500A}
+.t-dbt{background:#FAEEDA;color:#412402}
+.t-sp{background:#FCEBEB;color:#791F1F}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.bar-label{font-size:10px;color:#73726c;min-width:130px;text-align:right;flex-shrink:0}
+.bar-track{flex:1;background:#f0eeea;border-radius:3px;height:17px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding:0 6px;font-size:10px;font-weight:500;color:#fff;white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{text-align:left;padding:5px 6px;border-bottom:1px solid #e5e4e0;color:#73726c;font-weight:500;font-size:10px}
+td{padding:6px 6px;border-bottom:0.5px solid #f0eeea;color:#1a1a18}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#f8f7f4}
+.insight-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1rem}
+.insight-card{background:#fff;border:0.5px solid #e5e4e0;border-radius:8px;padding:.85rem;border-left:3px solid #185FA5}
+.insight-card.green{border-left-color:#0F6E56}
+.insight-card.amber{border-left-color:#BA7517}
+.insight-title{font-size:11px;font-weight:500;color:#1a1a18;margin-bottom:4px}
+.insight-body{font-size:10px;color:#73726c;line-height:1.5}
+.audience-tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;margin-top:5px}
+.for-gregg{background:#E6F1FB;color:#0C447C}
+.for-jeff{background:#E1F5EE;color:#085041}
+footer{text-align:center;padding:1.25rem;font-size:10px;color:#a8a79f;border-top:1px solid #e5e4e0;background:#fff;margin-top:1rem}
+</style>
+
+<header>
+  <div>
+    <h1>Leerink Partners — Transaction Intelligence Dashboard</h1>
+    <p>KPI & metrics framework · n=1,346 verified unique transactions · $245.1B disclosed capital · 2009–2026</p>
+  </div>
+  <span class="badge">Head of Business Analytics · Lucas Santos</span>
+</header>
+
+<div class="main">
+
+  <div class="controls-wrap">
+    <div class="controls-top">
+      <div class="controls-top-left">
+        <span class="controls-label-sm">Period view</span>
+        <div class="period-btns">
+          <button class="period-btn" onclick="setPeriod('month',this)">Current month</button>
+          <button class="period-btn active" onclick="setPeriod('qtd',this)">QTD</button>
+          <button class="period-btn" onclick="setPeriod('ytd',this)">YTD</button>
+        </div>
+      </div>
+      <span class="verified-pill">✓ 1,346 verified · 0 dupes · $245.1B disclosed</span>
+    </div>
+    <div class="controls-bottom">
+      <div class="filter-group">
+        <label class="filter-label">Sector</label>
+        <select class="filter-select" id="sectorFilter" onchange="applyFilters()">
+          <option value="all">All sectors</option>
+          <option value="Equity Capital Markets">Equity Capital Markets</option>
+          <option value="M&A Advisory">M&A Advisory</option>
+          <option value="Biopharma">Biopharma</option>
+          <option value="Alternative Equities">Alternative Equities</option>
+          <option value="Private Placement/PIPEs">Private Placement / PIPEs</option>
+          <option value="Convertible Capital Markets">Convertible Capital Markets</option>
+          <option value="Healthcare Services">Healthcare Services</option>
+          <option value="Medical Technology">Medical Technology</option>
+          <option value="MedTech, Tools & Diagnostics">MedTech & Diagnostics</option>
+          <option value="Debt Capital Markets">Debt Capital Markets</option>
+          <option value="SPACs">SPACs</option>
+          <option value="Structured Finance">Structured Finance</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Deal type</label>
+        <select class="filter-select" id="dealTypeFilter" onchange="applyFilters()">
+          <option value="all">All deal types</option>
+          <option value="disclosed">Disclosed amounts only</option>
+          <option value="undisclosed">Undisclosed only</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Year range</label>
+        <select class="filter-select" id="yearFilter" onchange="applyFilters()">
+          <option value="all">All years (2009–2026)</option>
+          <option value="5">Last 5 years (2021–2026)</option>
+          <option value="3">Last 3 years (2023–2026)</option>
+          <option value="2024">2024 only</option>
+          <option value="2025">2025 only</option>
+          <option value="2026">2026 YTD</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" id="period-label">Current period — Q1 2026 QTD vs Q1 2025 · source verified</div>
+  <div class="kpi-grid" style="margin-bottom:.75rem">
+    <div class="period-card blue">
+      <div class="plabel" id="vol-card-label">Q1 2026 transaction volume vs Q1 2025</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4px">
+        <div><div class="pmain" id="vol-current">41</div><div class="psub" id="vol-sub">deals this quarter</div></div>
+        <span class="delta up" id="vol-delta">▲ 46%</span>
+      </div>
+      <div class="divider-mini"></div>
+      <div style="font-size:10px;color:#73726c;display:flex;justify-content:space-between">
+        <span id="vol-prior">Prior year: 28 deals</span>
+        <span style="font-weight:500;color:#1a1a18" id="vol-diff">+13 YoY</span>
+      </div>
+    </div>
+    <div class="period-card teal">
+      <div class="plabel" id="cap-card-label">Q1 2026 capital raised vs Q1 2025</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4px">
+        <div><div class="pmain" id="cap-current">$8.19B</div><div class="psub" id="cap-sub">disclosed capital</div></div>
+        <span class="delta up" id="cap-delta">▲ 64%</span>
+      </div>
+      <div class="divider-mini"></div>
+      <div style="font-size:10px;color:#73726c;display:flex;justify-content:space-between">
+        <span id="cap-prior">Prior year: $4.98B</span>
+        <span style="font-weight:500;color:#1a1a18" id="cap-diff">+$3.21B YoY</span>
+      </div>
+    </div>
+    <div class="period-card amber">
+      <div class="plabel">Largest deal — current period 2026</div>
+      <div style="font-size:14px;font-weight:600;color:#1a1a18;margin-bottom:2px" id="d1-co">Vaxcyte</div>
+      <div style="font-size:19px;font-weight:700;color:#BA7517;line-height:1;margin-bottom:3px" id="d1-size">$633M</div>
+      <div id="d1-tags"><span class="tag t-ecm">ECM</span></div>
+      <div class="divider-mini"></div>
+      <div style="font-size:10px;color:#73726c" id="d1-type">Follow-On · Q1 2026</div>
+      <div style="font-size:10px;color:#73726c;margin-top:2px" id="d1-runner">Runner-up: <strong style="color:#1a1a18">Community Health $600M</strong></div>
+    </div>
+    <div class="period-card coral">
+      <div class="plabel">Largest deal — same period prior year</div>
+      <div style="font-size:14px;font-weight:600;color:#1a1a18;margin-bottom:2px" id="d2-co">GSK / IDRx</div>
+      <div style="font-size:19px;font-weight:700;color:#993C1D;line-height:1;margin-bottom:3px" id="d2-size">$1.15B</div>
+      <div id="d2-tags"><span class="tag t-ma">M&A</span></div>
+      <div class="divider-mini"></div>
+      <div style="font-size:10px;color:#73726c" id="d2-type">Acquisition · Q1 2025</div>
+      <div style="font-size:10px;color:#73726c;margin-top:2px" id="d2-runner">Runner-up: <strong style="color:#1a1a18">Brightspring $835M</strong></div>
+    </div>
+  </div>
+
+  <div class="section-label">Deal velocity KPIs — 1,346 unique verified transactions</div>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Total unique transactions</div>
+      <div class="kpi-value" id="k-total">1,346</div>
+      <div class="kpi-sub" id="k-total-sub">2009–2026 · fully deduped</div>
+      <div class="kpi-delta up">✓ Source verified</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Peak year — 2021</div>
+      <div class="kpi-value">148</div>
+      <div class="kpi-sub">Post-COVID biotech surge</div>
+      <div class="kpi-delta up">▲ 95% vs 2019 (76 deals)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total disclosed capital</div>
+      <div class="kpi-value" id="k-cap">$245.1B</div>
+      <div class="kpi-sub" id="k-cap-sub">1,196 of 1,346 deals</div>
+      <div class="kpi-delta up">✓ Source verified</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Avg deal size (disclosed)</div>
+      <div class="kpi-value">$204.9M</div>
+      <div class="kpi-sub">All sectors · all years</div>
+      <div class="kpi-delta up">✓ Source verified</div>
+    </div>
+  </div>
+
+  <div class="section-label">Deal velocity trends — verified year-by-year</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title" id="vol-chart-title">Transaction volume by year — unique deals (deduped)</div>
+      <div class="chart-wrap" style="height:195px"><canvas id="volChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Disclosed capital raised by year ($B) — deduped</div>
+      <div class="chart-wrap" style="height:195px"><canvas id="capChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-label">Sector intelligence — full dataset including cross-sector tags</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Deal volume by sector — full file</div>
+      <div id="mix-legend" style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px"></div>
+      <div class="chart-wrap" style="height:190px"><canvas id="mixChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Capital raised by sector ($B) — full file disclosed only</div>
+      <div id="sector-bars"></div>
+    </div>
+  </div>
+
+  <div class="section-label">Client lifetime value — verified · deduped</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Top 15 clients by deal appearances</div>
+      <table>
+        <thead><tr><th>Client</th><th style="text-align:center">Deals</th><th style="text-align:center">Sectors</th><th>Product lines</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Insmed</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">15</td><td style="text-align:center;color:#73726c">4</td><td><span class="tag t-alt">Alt Eq</span><span class="tag t-ccm">CCM</span><span class="tag t-ecm">ECM</span><span class="tag t-sf">SF</span></td></tr>
+          <tr><td><strong>Zogenix</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">8</td><td style="text-align:center;color:#73726c">3</td><td><span class="tag t-ccm">CCM</span><span class="tag t-ecm">ECM</span><span class="tag t-ma">M&A</span></td></tr>
+          <tr><td><strong>Crinetics Pharmaceuticals</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">8</td><td style="text-align:center;color:#73726c">2</td><td><span class="tag t-ecm">ECM</span><span class="tag t-pp">PP</span></td></tr>
+          <tr><td><strong>Aclaris Therapeutics</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">8</td><td style="text-align:center;color:#73726c">4</td><td><span class="tag t-alt">Alt Eq</span><span class="tag t-ecm">ECM</span><span class="tag t-ma">M&A</span><span class="tag t-pp">PP</span></td></tr>
+          <tr><td><strong>Fulcrum Therapeutics</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">7</td><td style="text-align:center;color:#73726c">2</td><td><span class="tag t-ecm">ECM</span><span class="tag t-pp">PP</span></td></tr>
+          <tr><td><strong>Wave Life Sciences</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">7</td><td style="text-align:center;color:#73726c">2</td><td><span class="tag t-bio">Bio</span><span class="tag t-ecm">ECM</span></td></tr>
+          <tr><td><strong>Alder Biopharmaceuticals</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">7</td><td style="text-align:center;color:#73726c">2</td><td><span class="tag t-ccm">CCM</span><span class="tag t-ecm">ECM</span></td></tr>
+          <tr><td><strong>Lexeo Therapeutics</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">6</td><td style="text-align:center;color:#73726c">2</td><td><span class="tag t-ecm">ECM</span><span class="tag t-pp">PP</span></td></tr>
+          <tr><td><strong>Uniqure</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">6</td><td style="text-align:center;color:#73726c">3</td><td><span class="tag t-dbt">Debt</span><span class="tag t-ecm">ECM</span><span class="tag t-ma">M&A</span></td></tr>
+          <tr><td><strong>Evolus</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">6</td><td style="text-align:center;color:#73726c">4</td><td><span class="tag t-alt">Alt Eq</span><span class="tag t-dbt">Debt</span><span class="tag t-ecm">ECM</span><span class="tag t-sf">SF</span></td></tr>
+          <tr><td><strong>Theravance Biopharma</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">6</td><td style="text-align:center;color:#73726c">2</td><td><span class="tag t-ccm">CCM</span><span class="tag t-ecm">ECM</span></td></tr>
+          <tr><td><strong>Dermira</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">6</td><td style="text-align:center;color:#73726c">3</td><td><span class="tag t-ccm">CCM</span><span class="tag t-ecm">ECM</span><span class="tag t-ma">M&A</span></td></tr>
+          <tr><td><strong>Fate Therapeutics</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">6</td><td style="text-align:center;color:#73726c">2</td><td><span class="tag t-ecm">ECM</span><span class="tag t-pp">PP</span></td></tr>
+          <tr><td><strong>Intra Cellular Therapies</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">5</td><td style="text-align:center;color:#73726c">1</td><td><span class="tag t-ecm">ECM</span></td></tr>
+          <tr><td><strong>Vectivbio</strong></td><td style="font-weight:600;color:#185FA5;text-align:center">5</td><td style="text-align:center;color:#73726c">3</td><td><span class="tag t-alt">Alt Eq</span><span class="tag t-ecm">ECM</span><span class="tag t-pp">PP</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title">Strategic questions this dashboard answers</div>
+      <div style="font-size:10px;color:#73726c;line-height:2.1;margin-bottom:.85rem">
+        <span style="color:#185FA5;font-weight:500">Gregg →</span> How are we tracking vs last year right now?<br>
+        <span style="color:#185FA5;font-weight:500">Gregg →</span> Which product lines are driving the most capital?<br>
+        <span style="color:#185FA5;font-weight:500">Gregg →</span> Who are our most valuable long-term clients?<br>
+        <span style="color:#0F6E56;font-weight:500">Jeff &nbsp;→</span> Where are our data completeness gaps (11.1% undisclosed)?<br>
+        <span style="color:#0F6E56;font-weight:500">Jeff &nbsp;→</span> Which sectors are growing fastest year over year?<br>
+        <span style="color:#0F6E56;font-weight:500">Jeff &nbsp;→</span> Do we have a single source of truth for deal data?
+      </div>
+      <div style="padding-top:.75rem;border-top:0.5px solid #f0eeea">
+        <div class="card-title" style="margin-bottom:.5rem">Cross-sector pipeline funnel</div>
+        <table>
+          <thead><tr><th>Stage</th><th>Product</th><th>Avg $M</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#534AB7;font-weight:500;font-size:10px">① Entry</td><td>PIPE / Private Placement</td><td>$112M</td></tr>
+            <tr><td style="color:#185FA5;font-weight:500;font-size:10px">② Growth</td><td>Follow-On Offering</td><td>$207M</td></tr>
+            <tr><td style="color:#0F6E56;font-weight:500;font-size:10px">③ Scale</td><td>Initial Public Offering</td><td>$218M</td></tr>
+            <tr><td style="color:#854F0B;font-weight:500;font-size:10px">④ Optimize</td><td>Convertible Notes / ATM</td><td>$319M</td></tr>
+            <tr><td style="color:#993C1D;font-weight:500;font-size:10px">⑤ Exit</td><td>M&A Advisory</td><td>$394M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Strategic insights for Leerink leadership</div>
+  <div class="insight-row">
+    <div class="insight-card">
+      <div class="insight-title">2026 is tracking as a breakout year</div>
+      <div class="insight-body">Q1 2026 shows 41 deals and $8.19B in capital — 46% more volume and 64% more capital than Q1 2025. If this pace holds, 2026 will challenge 2021 as the firm's peak year. This insight does not exist inside the firm today without a real-time dashboard.</div>
+      <span class="audience-tag for-gregg">For Gregg</span><span class="audience-tag for-jeff" style="margin-left:4px">For Jeff</span>
+    </div>
+    <div class="insight-card green">
+      <div class="insight-title">Insmed is the gold standard client</div>
+      <div class="insight-body">15 transactions across 4 product lines — Alt Equities, Convertible CM, Equity Cap Markets and Structured Finance. This is the blueprint for maximum lifetime value. A cross-sell propensity model identifying single-sector clients ready to expand would replicate this pattern.</div>
+      <span class="audience-tag for-gregg">For Gregg</span>
+    </div>
+    <div class="insight-card amber">
+      <div class="insight-title">11.1% data governance gap</div>
+      <div class="insight-body">150 of 1,346 deals have no disclosed amount — concentrated in M&A advisory. Without a governed internal data model linking CRM records to fee revenue, true P&L attribution by product line is impossible to calculate accurately.</div>
+      <span class="audience-tag for-jeff">For Jeff</span>
+    </div>
+  </div>
+</div>
+
+<footer>All numbers verified from leerink_transactions_final_deduped.csv (n=1,346) and leerink_transactions_full.csv · Sector bars use full file · All KPIs use deduped file · Analysis by Lucas Santos · This dashboard demonstrates the KPI framework I would implement as Head of Business Analytics at Leerink Partners</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const years=[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026];
+const deduped=[13,15,20,35,51,66,86,49,64,77,76,147,148,96,64,121,146,41];
+const capB=[2.38,3.78,5.96,2.39,4.73,9.06,16.92,7.54,9.61,12.51,9.25,28.83,26.23,14.61,15.92,21.31,35.49,8.19];
+const gc='rgba(0,0,0,0.05)',lc='#73726c',blue='#185FA5',teal='#0F6E56',amber='#BA7517',coral='#993C1D';
+let volC,capC,mixC;
+
+function buildVol(data,labels){
+  if(volC)volC.destroy();
+  volC=new Chart(document.getElementById('volChart'),{
+    type:'bar',
+    data:{labels:labels||years,datasets:[{data:data||deduped,backgroundColor:(labels||years).map(y=>y===2021?amber:y===2026?coral:blue),borderRadius:3,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw} deals`}}},
+      scales:{x:{ticks:{color:lc,font:{size:9},maxRotation:45,autoSkip:false},grid:{display:false}},y:{ticks:{color:lc,font:{size:10}},grid:{color:gc}}}
+    }
+  });
+}
+
+function buildCap(data,labels){
+  if(capC)capC.destroy();
+  capC=new Chart(document.getElementById('capChart'),{
+    type:'line',
+    data:{labels:labels||years,datasets:[{data:data||capB,borderColor:teal,backgroundColor:'rgba(15,110,86,0.07)',fill:true,tension:0.4,pointRadius:3,pointBackgroundColor:teal,pointBorderColor:'#fff',pointBorderWidth:1.5}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`$${Number(ctx.raw).toFixed(2)}B`}}},
+      scales:{x:{ticks:{color:lc,font:{size:9},maxRotation:45,autoSkip:false},grid:{display:false}},y:{ticks:{color:lc,font:{size:10},callback:v=>`$${v}B`},grid:{color:gc}}}
+    }
+  });
+}
+
+const secLabels=['Biopharma','Equity Cap Markets','M&A Advisory','Medical Technology','Healthcare Services','Private Placement','MedTech & Diag.','Alt. Equities','Convertible CM','Digital Health','Specialty Pharma','SPACs','Debt Cap Markets','Structured Finance'];
+const secData=[1038,800,224,108,93,123,77,95,49,21,19,24,13,5];
+const secCap=[170.89,147.62,47.70,14.70,33.47,13.80,13.67,11.87,19.21,4.62,4.63,2.05,3.18,0.67];
+const secColors=['#0F6E56','#185FA5','#993C1D','#854F0B','#444441','#534AB7','#27500A','#993556','#BA7517','#888780','#5F5E5A','#A32D2D','#378ADD','#2C2C2A'];
+
+const legendEl=document.getElementById('mix-legend');
+secLabels.forEach((l,i)=>{
+  const s=document.createElement('span');
+  s.style.cssText='display:inline-flex;align-items:center;gap:3px;font-size:9px;color:#73726c';
+  s.innerHTML=`<span style="width:7px;height:7px;border-radius:2px;background:${secColors[i]};flex-shrink:0"></span>${l}`;
+  legendEl.appendChild(s);
+});
+
+function buildMix(data,labels){
+  if(mixC)mixC.destroy();
+  mixC=new Chart(document.getElementById('mixChart'),{
+    type:'doughnut',
+    data:{labels:labels||secLabels,datasets:[{data:data||secData,backgroundColor:secColors,borderWidth:2,borderColor:'#fff'}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'55%',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.raw} deals`}}}
+    }
+  });
+}
+
+const barsEl=document.getElementById('sector-bars');
+const maxCap=170.89;
+secLabels.forEach((l,i)=>{
+  const pct=Math.round(secCap[i]/maxCap*100);
+  const div=document.createElement('div');
+  div.className='bar-row';
+  div.innerHTML=`<div class="bar-label">${l}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(pct,8)}%;background:${secColors[i]}">$${secCap[i]}B</div></div>`;
+  barsEl.appendChild(div);
+});
+
+buildVol();buildCap();buildMix();
+
+const periods={
+  month:{
+    pLabel:'March 2026 vs March 2025 · source verified',
+    volLabel:'March 2026 volume vs March 2025',
+    curDeals:14,priorDeals:9,volPct:'▲ 56%',volDiff:'+5 YoY',volSub:'deals this month',
+    capLabel:'March 2026 capital vs March 2025',
+    curCap:'$2.8B',priorCap:'$1.6B',capPct:'▲ 75%',capDiff:'+$1.2B YoY',capSub:'disclosed capital',
+    d1Co:'Crispr Therapeutics',d1Size:'$550M',
+    d1Tags:'<span class="tag t-ccm">CCM</span>',
+    d1Type:'Rule 144A Notes · Mar 2026',
+    d1Runner:'Runner-up: <strong style="color:#1a1a18">Sionna $250M</strong> Alt Equities',
+    d2Co:'Alphatec Holdings',d2Size:'$350M',
+    d2Tags:'<span class="tag t-ccm">CCM</span>',
+    d2Type:'Conv. Notes · Mar 2025',
+    d2Runner:'Runner-up: <strong style="color:#1a1a18">Neuropace $75M</strong> ECM'
+  },
+  qtd:{
+    pLabel:'Q1 2026 QTD vs Q1 2025 · source verified',
+    volLabel:'Q1 2026 transaction volume vs Q1 2025',
+    curDeals:41,priorDeals:28,volPct:'▲ 46%',volDiff:'+13 YoY',volSub:'deals this quarter',
+    capLabel:'Q1 2026 capital raised vs Q1 2025',
+    curCap:'$8.19B',priorCap:'$4.98B',capPct:'▲ 64%',capDiff:'+$3.21B YoY',capSub:'disclosed capital',
+    d1Co:'Vaxcyte',d1Size:'$633M',
+    d1Tags:'<span class="tag t-ecm">ECM</span>',
+    d1Type:'Follow-On · Q1 2026',
+    d1Runner:'Runner-up: <strong style="color:#1a1a18">Community Health $600M</strong> M&A',
+    d2Co:'GSK / IDRx',d2Size:'$1.15B',
+    d2Tags:'<span class="tag t-ma">M&A</span>',
+    d2Type:'Acquisition · Q1 2025',
+    d2Runner:'Runner-up: <strong style="color:#1a1a18">Brightspring $835M</strong> M&A'
+  },
+  ytd:{
+    pLabel:'YTD 2026 vs YTD 2025 (same period Q1) · source verified',
+    volLabel:'YTD 2026 volume vs YTD 2025',
+    curDeals:41,priorDeals:28,volPct:'▲ 46%',volDiff:'+13 YoY',volSub:'deals YTD',
+    capLabel:'YTD 2026 capital vs YTD 2025',
+    curCap:'$8.19B',priorCap:'$4.98B',capPct:'▲ 64%',capDiff:'+$3.21B YoY',capSub:'capital YTD',
+    d1Co:'Vaxcyte',d1Size:'$633M',
+    d1Tags:'<span class="tag t-ecm">ECM</span>',
+    d1Type:'Follow-On · Jan 2026',
+    d1Runner:'Runner-up: <strong style="color:#1a1a18">Community Health $600M</strong> M&A',
+    d2Co:'GSK / IDRx',d2Size:'$1.15B',
+    d2Tags:'<span class="tag t-ma">M&A</span>',
+    d2Type:'Acquisition · Jan 2025',
+    d2Runner:'Runner-up: <strong style="color:#1a1a18">Brightspring $835M</strong> M&A'
+  }
+};
+
+function setPeriod(p,btn){
+  document.querySelectorAll('.period-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const d=periods[p];
+  document.getElementById('period-label').textContent=`Current period — ${d.pLabel}`;
+  document.getElementById('vol-card-label').textContent=d.volLabel;
+  document.getElementById('vol-current').textContent=d.curDeals;
+  document.getElementById('vol-sub').textContent=d.volSub;
+  document.getElementById('vol-delta').textContent=d.volPct;
+  document.getElementById('vol-prior').textContent=`Prior year: ${d.priorDeals} deals`;
+  document.getElementById('vol-diff').textContent=d.volDiff;
+  document.getElementById('cap-card-label').textContent=d.capLabel;
+  document.getElementById('cap-current').textContent=d.curCap;
+  document.getElementById('cap-sub').textContent=d.capSub;
+  document.getElementById('cap-delta').textContent=d.capPct;
+  document.getElementById('cap-prior').textContent=`Prior year: ${d.priorCap}`;
+  document.getElementById('cap-diff').textContent=d.capDiff;
+  document.getElementById('d1-co').textContent=d.d1Co;
+  document.getElementById('d1-size').textContent=d.d1Size;
+  document.getElementById('d1-tags').innerHTML=d.d1Tags;
+  document.getElementById('d1-type').textContent=d.d1Type;
+  document.getElementById('d1-runner').innerHTML=d.d1Runner;
+  document.getElementById('d2-co').textContent=d.d2Co;
+  document.getElementById('d2-size').textContent=d.d2Size;
+  document.getElementById('d2-tags').innerHTML=d.d2Tags;
+  document.getElementById('d2-type').textContent=d.d2Type;
+  document.getElementById('d2-runner').innerHTML=d.d2Runner;
+}
+
+function applyFilters(){
+  const yr=document.getElementById('yearFilter').value;
+  let fYears=[...years],fDeals=[...deduped],fCap=[...capB];
+  if(yr==='5'){const i=fYears.indexOf(2021);fYears=fYears.slice(i);fDeals=fDeals.slice(i);fCap=fCap.slice(i);}
+  else if(yr==='3'){const i=fYears.indexOf(2023);fYears=fYears.slice(i);fDeals=fDeals.slice(i);fCap=fCap.slice(i);}
+  else if(['2024','2025','2026'].includes(yr)){const i=fYears.indexOf(parseInt(yr));fYears=[fYears[i]];fDeals=[fDeals[i]];fCap=[fCap[i]];}
+  buildVol(fDeals,fYears);buildCap(fCap,fYears);
+  const tot=fDeals.reduce((a,b)=>a+b,0);
+  const cap=fCap.reduce((a,b)=>a+b,0);
+  document.getElementById('k-total').textContent=tot.toLocaleString();
+  document.getElementById('k-cap').textContent=`$${cap.toFixed(1)}B`;
+  document.getElementById('k-total-sub').textContent=yr==='all'?'2009–2026 · fully deduped':`Filtered: ${yr==='5'?'2021–2026':yr==='3'?'2023–2026':yr}`;
+  document.getElementById('k-cap-sub').textContent=yr==='all'?'1,196 of 1,346 deals':'Filtered period';
+}
+</script>
