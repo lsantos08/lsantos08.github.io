@@ -1,0 +1,517 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f7f4;color:#1a1a18}
+header{background:#fff;border-bottom:1px solid #e5e4e0;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+header h1{font-size:14px;font-weight:600;color:#1a1a18}
+header p{font-size:10px;color:#73726c;margin-top:2px}
+.badge{background:#E1F5EE;color:#085041;font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.main{padding:0 1rem 2rem}
+.section-label{font-size:10px;font-weight:600;color:#73726c;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.65rem;padding-left:2px;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:0.5px;background:#e5e4e0}
+.controls-wrap{background:#fff;border:0.5px solid #e5e4e0;border-radius:10px;padding:.85rem 1.25rem;display:flex;flex-direction:column;gap:.75rem;margin-bottom:1rem}
+.controls-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.controls-label-sm{font-size:10px;color:#73726c;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.verified-pill{font-size:9px;color:#085041;font-weight:500;background:#E1F5EE;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.controls-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:start}
+.filter-group{display:flex;flex-direction:column;gap:4px}
+.filter-label{font-size:10px;font-weight:500;color:#73726c;display:flex;align-items:center;gap:6px}
+.step{background:#185FA5;color:#fff;font-size:8px;font-weight:600;width:14px;height:14px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.arrow{color:#c5c3bb;font-size:10px}
+select{font-size:11px;padding:6px 10px;border:0.5px solid #e5e4e0;border-radius:6px;background:#fff;color:#1a1a18;cursor:pointer;outline:none;width:100%}
+select:focus{border-color:#0F6E56}
+select:disabled{opacity:0.4;cursor:not-allowed;background:#f8f7f4}
+.cascade-note{font-size:9px;color:#73726c;margin-top:2px;font-style:italic}
+.cascade-note.active{color:#0F6E56;font-style:normal;font-weight:500}
+.reset-btn{font-size:10px;padding:4px 12px;border:0.5px solid #e5e4e0;border-radius:6px;background:#fff;color:#73726c;cursor:pointer}
+.reset-btn:hover{background:#f0eeea}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1rem}
+.kpi{background:#fff;border:0.5px solid #e5e4e0;border-radius:8px;padding:.85rem 1rem}
+.kpi-label{font-size:10px;color:#73726c;margin-bottom:3px}
+.kpi-value{font-size:20px;font-weight:600;color:#1a1a18;line-height:1.1}
+.kpi-sub{font-size:10px;color:#a8a79f;margin-top:3px}
+.kpi-delta{font-size:10px;font-weight:500;margin-top:3px}
+.up{color:#0F6E56}.down{color:#993C1D}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.card{background:#fff;border:0.5px solid #e5e4e0;border-radius:8px;padding:1rem}
+.card-title{font-size:10px;font-weight:500;color:#73726c;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
+.chart-wrap{position:relative;width:100%}
+.tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;margin:1px;font-weight:500}
+.t-op{background:#E1F5EE;color:#085041}.t-mp{background:#E6F1FB;color:#0C447C}
+.t-un{background:#FAECE7;color:#712B13}.t-up{background:#E1F5EE;color:#085041}
+.t-dn{background:#FAECE7;color:#712B13}
+.analyst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1rem}
+.analyst-card{background:#fff;border:0.5px solid #e5e4e0;border-radius:8px;padding:.85rem 1rem;position:relative;overflow:hidden;transition:opacity .2s}
+.analyst-card.star::before{content:'★ STAR';position:absolute;top:8px;right:8px;font-size:8px;font-weight:600;color:#633806;background:#FAEEDA;padding:2px 6px;border-radius:3px}
+.analyst-card.dimmed{opacity:0.2}
+.analyst-name{font-size:12px;font-weight:600;color:#1a1a18;margin-bottom:2px}
+.analyst-sector-tag{font-size:10px;color:#73726c;margin-bottom:8px}
+.analyst-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px}
+.stat-box{background:#f8f7f4;border-radius:4px;padding:5px 6px;text-align:center}
+.stat-val{font-size:13px;font-weight:600;color:#1a1a18}
+.stat-lbl{font-size:9px;color:#73726c;margin-top:1px}
+.score-bar-wrap{margin-top:6px}
+.score-label{font-size:9px;color:#73726c;margin-bottom:3px;display:flex;justify-content:space-between}
+.score-track{background:#f0eeea;border-radius:3px;height:6px;overflow:hidden}
+.score-fill{height:100%;border-radius:3px}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{text-align:left;padding:5px 6px;border-bottom:1px solid #e5e4e0;color:#73726c;font-weight:500;font-size:10px}
+td{padding:6px 6px;border-bottom:0.5px solid #f0eeea;color:#1a1a18}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#f8f7f4}
+tr.dimmed td{opacity:0.2}
+.insight-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1rem}
+.insight-card{background:#fff;border:0.5px solid #e5e4e0;border-radius:8px;padding:.85rem;border-left:3px solid #185FA5}
+.insight-card.green{border-left-color:#0F6E56}
+.insight-card.amber{border-left-color:#BA7517}
+.insight-title{font-size:11px;font-weight:500;color:#1a1a18;margin-bottom:4px}
+.insight-body{font-size:10px;color:#73726c;line-height:1.5}
+.audience-tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;margin-top:5px}
+.for-gregg{background:#E6F1FB;color:#0C447C}
+.for-jeff{background:#E1F5EE;color:#085041}
+footer{text-align:center;padding:1.25rem;font-size:10px;color:#a8a79f;border-top:1px solid #e5e4e0;background:#fff;margin-top:1rem}
+</style>
+
+<header>
+  <div>
+    <h1>Leerink Partners — Research Intelligence Dashboard</h1>
+    <p>Coverage analytics · Analyst scorecard · Banking cross-reference · July 2024 vs May 2025 · 311 companies</p>
+  </div>
+  <span class="badge">Research Intelligence · Lucas Santos</span>
+</header>
+
+<div class="main">
+  <div class="controls-wrap">
+    <div class="controls-top">
+      <span class="controls-label-sm">Cascading filters — Sector → Analyst → Rating</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="verified-pill">✓ 311 companies · cross-referenced with 1,346 transactions</span>
+        <button class="reset-btn" onclick="resetFilters()">Reset all</button>
+      </div>
+    </div>
+    <div class="controls-bottom">
+      <div class="filter-group">
+        <label class="filter-label"><span class="step">1</span> Sector</label>
+        <select id="sectorFilter" onchange="onSectorChange()">
+          <option value="all">All sectors</option>
+          <option value="Immunology">Immunology & Metabolism</option>
+          <option value="Targeted Oncology">Targeted Oncology</option>
+          <option value="Genetic Medicine">Genetic Medicine</option>
+          <option value="Immuno-Oncology">Immuno-Oncology</option>
+          <option value="Neuroscience">Neuroscience</option>
+          <option value="Rare Diseases">Rare Diseases</option>
+          <option value="Healthcare Providers">Healthcare Providers</option>
+          <option value="Life Science Tools">Life Science Tools</option>
+          <option value="Medical Devices">Medical Devices</option>
+          <option value="Cardiovascular">Cardiovascular / Endocrine</option>
+          <option value="Diversified">Diversified Biopharma</option>
+          <option value="Healthcare Tech">Healthcare Tech & Dist.</option>
+          <option value="Emerging Oncology">Emerging Oncology</option>
+          <option value="Emerging Immunology">Emerging Immunology</option>
+        </select>
+        <span class="cascade-note" id="sector-note">Select a sector to narrow analysts</span>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label"><span class="step">2</span> Analyst <span class="arrow">← filtered by sector</span></label>
+        <select id="analystFilter" onchange="onAnalystChange()">
+          <option value="all">All analysts</option>
+        </select>
+        <span class="cascade-note" id="analyst-note">Showing all analysts</span>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label"><span class="step">3</span> Rating <span class="arrow">← filtered by analyst</span></label>
+        <select id="ratingFilter" onchange="applyAll()" disabled>
+          <option value="all">All ratings</option>
+          <option value="Outperform">Outperform only</option>
+          <option value="Market Perform">Market Perform only</option>
+          <option value="banked">Banked companies only</option>
+        </select>
+        <span class="cascade-note" id="rating-note">Select an analyst first</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Coverage KPIs — filtered view</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Companies in view</div><div class="kpi-value" id="k-total">311</div><div class="kpi-sub" id="k-sub">May 2025 · all sectors</div><div class="kpi-delta up" id="k-delta">▲ +15 vs July 2024</div></div>
+    <div class="kpi"><div class="kpi-label">Outperform conviction</div><div class="kpi-value" id="k-op">73%</div><div class="kpi-sub" id="k-op-sub">219 Outperform · 80 Mkt Perform</div><div class="kpi-delta up">Strong conviction</div></div>
+    <div class="kpi"><div class="kpi-label">Research + Banking overlap</div><div class="kpi-value" id="k-overlap">47</div><div class="kpi-sub" id="k-ov-sub">Full-service relationships</div><div class="kpi-delta up" id="k-ov-pct">15% of universe</div></div>
+    <div class="kpi"><div class="kpi-label">Avg market cap</div><div class="kpi-value" id="k-mcap">$4.2B</div><div class="kpi-sub" id="k-mcap-sub">Coverage universe</div><div class="kpi-delta up">Small-mid cap focus</div></div>
+  </div>
+
+  <div class="section-label">Market cap distribution & sector conviction</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Coverage by market cap bucket</div>
+      <div id="mcap-legend" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"></div>
+      <div class="chart-wrap" style="height:190px"><canvas id="mcapChart"></canvas></div>
+      <div style="font-size:10px;color:#73726c;margin-top:6px">Nano &lt;$300M · Micro $300M–$2B · Small $2B–$10B · Mid $10B–$50B · Large &gt;$50B</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Outperform vs Market Perform conviction by sector</div>
+      <div class="chart-wrap" style="height:220px"><canvas id="convictionChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-label">Analyst scorecard — composite score</div>
+  <div class="analyst-grid" id="analystGrid"></div>
+
+  <div class="section-label">Banking + Research cross-reference</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Companies covered AND banked</div>
+      <table><thead><tr><th>Company</th><th>Rating</th><th>Sector</th><th>Banking</th><th>Deals</th></tr></thead><tbody id="crossBody"></tbody></table>
+    </div>
+    <div class="card">
+      <div class="card-title">Rating changes — July 2024 → May 2025</div>
+      <table><thead><tr><th>Company</th><th>2024</th><th>2025</th><th>Change</th></tr></thead><tbody id="changesBody"></tbody></table>
+    </div>
+  </div>
+
+  <div class="section-label">Strategic insights</div>
+  <div class="insight-row">
+    <div class="insight-card green">
+      <div class="insight-title">Thomas J. Smith is the top composite analyst</div>
+      <div class="insight-body">30 companies covered, 90% Outperform conviction, 8 banked companies. His Immunology & Metabolism franchise — Insmed, Immunovant, Aclaris, Kyverna — consistently generates both research and banking revenue. The clearest example of full-service value creation at Leerink.</div>
+      <span class="audience-tag for-gregg">For Gregg</span>
+    </div>
+    <div class="insight-card">
+      <div class="insight-title">No unified research-to-banking pipeline exists</div>
+      <div class="insight-body">47 companies appear in both datasets but no system tracks time-from-coverage-initiation to first banking deal. Building this metric gives leadership a predictive revenue pipeline signal and identifies which analysts are true rainmakers — not just prolific writers.</div>
+      <span class="audience-tag for-jeff">For Jeff</span>
+    </div>
+    <div class="insight-card amber">
+      <div class="insight-title">Small-cap coverage dominates — fee opportunity skewed</div>
+      <div class="insight-body">Over 60% of covered companies are nano or micro-cap. Large-cap coverage is mostly Market Perform. Leerink's conviction and banking opportunity is concentrated in emerging growth companies — where research initiation most reliably leads to banking mandates.</div>
+      <span class="audience-tag for-gregg">For Gregg</span><span class="audience-tag for-jeff" style="margin-left:4px">For Jeff</span>
+    </div>
+  </div>
+</div>
+<footer>Built from Leerink Partners Coverage Lists (July 2024 · 296 companies) and (May 2025 · 311 companies) · Cross-referenced with transaction dataset (n=1,346) · Analysis by Lucas Santos · Head of Business Analytics candidate</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const blue='#185FA5',teal='#0F6E56',amber='#BA7517',coral='#993C1D',purple='#534AB7';
+const lc='#73726c',gc='rgba(0,0,0,0.05)';
+
+const ALL_ANALYSTS=[
+  {name:'Thomas J. Smith',shortName:'Smith',sector:'Immunology',covered:30,opPct:90,banked:8,star:true},
+  {name:'Joseph P. Schwartz',shortName:'Schwartz',sector:'Rare Diseases',covered:24,opPct:88,banked:7,star:true},
+  {name:'Mani Foroohar M.D.',shortName:'Foroohar',sector:'Genetic Medicine',covered:22,opPct:77,banked:5,star:true},
+  {name:'Andrew Berens M.D.',shortName:'Berens',sector:'Targeted Oncology',covered:20,opPct:90,banked:4,star:false},
+  {name:'David Risinger CFA',shortName:'Risinger',sector:'Diversified',covered:18,opPct:72,banked:4,star:false},
+  {name:'Marc Goodman',shortName:'Goodman',sector:'Neuroscience',covered:18,opPct:83,banked:3,star:false},
+  {name:'Puneet Souda',shortName:'Souda',sector:'Life Science Tools',covered:15,opPct:80,banked:3,star:false},
+  {name:'Daina Graybosch Ph.D.',shortName:'Graybosch',sector:'Immuno-Oncology',covered:15,opPct:80,banked:2,star:false},
+  {name:'Whit Mayo',shortName:'Mayo',sector:'Healthcare Providers',covered:16,opPct:69,banked:3,star:false},
+  {name:'Michael Cherny',shortName:'Cherny',sector:'Healthcare Tech',covered:16,opPct:69,banked:2,star:false},
+  {name:'Jonathan Chang Ph.D.',shortName:'Chang',sector:'Emerging Oncology',covered:14,opPct:86,banked:3,star:false},
+  {name:'Roanna Ruiz Ph.D.',shortName:'Ruiz',sector:'Cardiovascular',covered:12,opPct:75,banked:2,star:false},
+  {name:'Mike Kratky CFA',shortName:'Kratky',sector:'Medical Devices',covered:10,opPct:60,banked:1,star:false},
+  {name:'Faisal Khurshid',shortName:'Khurshid',sector:'Emerging Immunology',covered:9,opPct:89,banked:1,star:false},
+];
+
+const ANALYST_DATA={
+  Smith:  {total:30,overlap:8,avgMcap:'$1.8B',opPct:90,opN:27,mpN:3},
+  Schwartz:{total:24,overlap:7,avgMcap:'$2.1B',opPct:88,opN:21,mpN:3},
+  Foroohar:{total:22,overlap:5,avgMcap:'$2.4B',opPct:77,opN:17,mpN:5},
+  Berens:  {total:20,overlap:4,avgMcap:'$3.1B',opPct:90,opN:18,mpN:2},
+  Risinger:{total:18,overlap:4,avgMcap:'$28.4B',opPct:72,opN:13,mpN:5},
+  Goodman: {total:18,overlap:3,avgMcap:'$3.8B',opPct:83,opN:15,mpN:3},
+  Souda:   {total:15,overlap:3,avgMcap:'$8.6B',opPct:80,opN:12,mpN:3},
+  Graybosch:{total:15,overlap:2,avgMcap:'$2.9B',opPct:80,opN:12,mpN:3},
+  Mayo:    {total:16,overlap:3,avgMcap:'$12.4B',opPct:69,opN:11,mpN:5},
+  Cherny:  {total:16,overlap:2,avgMcap:'$16.2B',opPct:69,opN:11,mpN:5},
+  Chang:   {total:14,overlap:3,avgMcap:'$2.2B',opPct:86,opN:12,mpN:2},
+  Ruiz:    {total:12,overlap:2,avgMcap:'$2.8B',opPct:75,opN:9,mpN:3},
+  Kratky:  {total:10,overlap:1,avgMcap:'$14.2B',opPct:60,opN:6,mpN:4},
+  Khurshid:{total:9,overlap:1,avgMcap:'$0.8B',opPct:89,opN:8,mpN:1},
+};
+
+const SECTOR_DATA={
+  all:{mcap:[62,98,74,42,35],total:311,overlap:47,avgMcap:'$4.2B',opPct:73,opN:219,mpN:80},
+  Immunology:{mcap:[12,18,8,0,0],total:38,overlap:9,avgMcap:'$1.8B',opPct:84,opN:32,mpN:6},
+  'Targeted Oncology':{mcap:[8,10,5,3,1],total:27,overlap:4,avgMcap:'$3.1B',opPct:81,opN:22,mpN:5},
+  'Genetic Medicine':{mcap:[10,8,4,2,1],total:25,overlap:5,avgMcap:'$2.4B',opPct:80,opN:20,mpN:5},
+  'Immuno-Oncology':{mcap:[6,8,4,2,0],total:20,overlap:2,avgMcap:'$2.9B',opPct:80,opN:16,mpN:4},
+  Neuroscience:{mcap:[4,6,5,2,1],total:18,overlap:3,avgMcap:'$3.8B',opPct:83,opN:15,mpN:3},
+  'Rare Diseases':{mcap:[3,8,6,2,0],total:19,overlap:7,avgMcap:'$2.1B',opPct:95,opN:18,mpN:1},
+  'Healthcare Providers':{mcap:[2,4,5,3,1],total:15,overlap:3,avgMcap:'$12.4B',opPct:87,opN:13,mpN:2},
+  'Life Science Tools':{mcap:[2,4,5,2,1],total:14,overlap:3,avgMcap:'$8.6B',opPct:86,opN:12,mpN:2},
+  'Medical Devices':{mcap:[1,2,4,2,1],total:10,overlap:1,avgMcap:'$14.2B',opPct:90,opN:9,mpN:1},
+  Cardiovascular:{mcap:[3,4,3,1,0],total:11,overlap:2,avgMcap:'$2.8B',opPct:91,opN:10,mpN:1},
+  Diversified:{mcap:[1,2,3,4,2],total:12,overlap:4,avgMcap:'$28.4B',opPct:83,opN:10,mpN:2},
+  'Healthcare Tech':{mcap:[1,2,4,4,3],total:16,overlap:2,avgMcap:'$16.2B',opPct:75,opN:12,mpN:4},
+  'Emerging Oncology':{mcap:[4,6,4,1,1],total:16,overlap:3,avgMcap:'$2.2B',opPct:88,opN:14,mpN:2},
+  'Emerging Immunology':{mcap:[3,4,1,0,0],total:8,overlap:1,avgMcap:'$0.8B',opPct:100,opN:8,mpN:0},
+};
+
+const ALL_CROSS=[
+  {co:'Insmed',rating:'Outperform',sector:'Immunology',analyst:'Smith',banking:'ECM · CCM · SF',deals:15},
+  {co:'Crinetics Pharmaceuticals',rating:'Outperform',sector:'Rare Diseases',analyst:'Schwartz',banking:'ECM · PP',deals:8},
+  {co:'Aclaris Therapeutics',rating:'Outperform',sector:'Immunology',analyst:'Smith',banking:'ECM · M&A · PP',deals:8},
+  {co:'Fulcrum Therapeutics',rating:'Outperform',sector:'Rare Diseases',analyst:'Schwartz',banking:'ECM · PP',deals:7},
+  {co:'Wave Life Sciences',rating:'Outperform',sector:'Genetic Medicine',analyst:'Schwartz',banking:'Bio · ECM',deals:7},
+  {co:'Alder Biopharmaceuticals',rating:'Market Perform',sector:'Cardiovascular',analyst:'Ruiz',banking:'CCM · ECM',deals:7},
+  {co:'Uniqure',rating:'Outperform',sector:'Genetic Medicine',analyst:'Foroohar',banking:'ECM · M&A · Debt',deals:6},
+  {co:'Evolus',rating:'Outperform',sector:'Neuroscience',analyst:'Goodman',banking:'ECM · M&A · Debt',deals:6},
+  {co:'Guardant Health',rating:'Outperform',sector:'Life Science Tools',analyst:'Souda',banking:'ECM · CCM',deals:5},
+  {co:'Immunovant',rating:'Outperform',sector:'Immunology',analyst:'Smith',banking:'ECM · Alt Eq',deals:5},
+  {co:'Vaxcyte',rating:'Outperform',sector:'Diversified',analyst:'Risinger',banking:'ECM',deals:5},
+  {co:'Replimune',rating:'Outperform',sector:'Emerging Oncology',analyst:'Chang',banking:'ECM · PP',deals:5},
+  {co:'CRISPR Therapeutics',rating:'Outperform',sector:'Genetic Medicine',analyst:'Foroohar',banking:'CCM · ECM',deals:4},
+  {co:'Avidity Biosciences',rating:'Outperform',sector:'Rare Diseases',analyst:'Schwartz',banking:'ECM · PP',deals:4},
+  {co:'BrightSpring Health',rating:'Outperform',sector:'Healthcare Providers',analyst:'Mayo',banking:'ECM · M&A',deals:3},
+];
+
+const ALL_CHANGES=[
+  {co:'AbbVie',r24:'Mkt Perform',r25:'Outperform',dir:'up',sector:'Diversified'},
+  {co:'Bristol-Myers Squibb',r24:'Mkt Perform',r25:'Outperform',dir:'up',sector:'Diversified'},
+  {co:'CVS Health',r24:'Mkt Perform',r25:'Outperform',dir:'up',sector:'Healthcare Tech'},
+  {co:'Gilead Sciences',r24:'Mkt Perform',r25:'Outperform',dir:'up',sector:'Immuno-Oncology'},
+  {co:'Ionis Pharmaceuticals',r24:'Mkt Perform',r25:'Outperform',dir:'up',sector:'Genetic Medicine'},
+  {co:'Beam Therapeutics',r24:'Mkt Perform',r25:'Outperform',dir:'up',sector:'Genetic Medicine'},
+  {co:'Quest Diagnostics',r24:'Mkt Perform',r25:'Outperform',dir:'up',sector:'Healthcare Tech'},
+  {co:'Halozyme',r24:'Outperform',r25:'Underperform',dir:'down',sector:'Diversified'},
+  {co:'Humana',r24:'Outperform',r25:'Mkt Perform',dir:'down',sector:'Healthcare Providers'},
+  {co:'Hologic',r24:'Outperform',r25:'Mkt Perform',dir:'down',sector:'Life Science Tools'},
+  {co:'Vertex Pharma',r24:'Outperform',r25:'Mkt Perform',dir:'down',sector:'Diversified'},
+  {co:'IDEAYA Biosciences',r24:'Outperform',r25:'Mkt Perform',dir:'down',sector:'Targeted Oncology'},
+];
+
+const SECTOR_LABELS=['Immunology','Targeted Onc.','Genetic Med.','Immuno-Onc.','Neuroscience','Rare Diseases','HC Providers','Life Sci Tools','Med Devices','Cardiovascular','Diversified Bio','HC Tech & Dist.','Emrg Oncology','Emrg Immunology'];
+const ALL_OP=[32,22,20,16,15,18,13,12,9,10,10,12,14,8];
+const ALL_MP=[6,5,5,4,3,1,2,2,1,1,2,4,2,0];
+const MCAP_LABELS=['Nano (<$300M)','Micro ($300M–$2B)','Small ($2B–$10B)','Mid ($10B–$50B)','Large (>$50B)'];
+const MCAP_COLORS=[coral,amber,blue,teal,purple];
+
+// Build mcap legend
+const mcapLegend=document.getElementById('mcap-legend');
+MCAP_LABELS.forEach((l,i)=>{
+  const s=document.createElement('span');
+  s.style.cssText='display:inline-flex;align-items:center;gap:3px;font-size:9px;color:#73726c';
+  s.innerHTML=`<span style="width:8px;height:8px;border-radius:2px;background:${MCAP_COLORS[i]};flex-shrink:0"></span>${l}`;
+  mcapLegend.appendChild(s);
+});
+
+// Populate analyst dropdown initially with all analysts
+function populateAnalysts(sectorFilter){
+  const sel=document.getElementById('analystFilter');
+  const current=sel.value;
+  sel.innerHTML='<option value="all">All analysts</option>';
+  const filtered=sectorFilter==='all'?ALL_ANALYSTS:ALL_ANALYSTS.filter(a=>a.sector===sectorFilter);
+  filtered.forEach(a=>{
+    const opt=document.createElement('option');
+    opt.value=a.shortName;
+    opt.textContent=a.name;
+    sel.appendChild(opt);
+  });
+  // restore selection if still valid
+  if([...sel.options].some(o=>o.value===current)) sel.value=current;
+  else sel.value='all';
+}
+
+let mcapC,convC;
+
+function buildMcap(data){
+  if(mcapC)mcapC.destroy();
+  mcapC=new Chart(document.getElementById('mcapChart'),{
+    type:'doughnut',
+    data:{labels:MCAP_LABELS,datasets:[{data,backgroundColor:MCAP_COLORS,borderWidth:2,borderColor:'#fff'}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'55%',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.raw} companies`}}}}
+  });
+}
+
+function buildConviction(opData,mpData,labels){
+  if(convC)convC.destroy();
+  convC=new Chart(document.getElementById('convictionChart'),{
+    type:'bar',
+    data:{labels,datasets:[
+      {label:'Outperform',data:opData,backgroundColor:teal,borderRadius:2,borderSkipped:false},
+      {label:'Mkt Perform',data:mpData,backgroundColor:'rgba(24,95,165,0.3)',borderRadius:2,borderSkipped:false}
+    ]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,position:'top',labels:{font:{size:10},color:lc,boxWidth:10,padding:10}},
+        tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.raw}`}}},
+      scales:{
+        x:{stacked:true,ticks:{color:lc,font:{size:9}},grid:{color:gc}},
+        y:{stacked:true,ticks:{color:lc,font:{size:9}},grid:{display:false}}
+      }
+    }
+  });
+}
+
+function compositeScore(a){return Math.round((a.covered/30)*33+(a.opPct/100)*33+(a.banked/8)*34);}
+function getScoreColor(s){return s>=75?teal:s>=55?amber:coral;}
+
+function renderAnalysts(activeSector,activeAnalyst,activeRating){
+  const grid=document.getElementById('analystGrid');
+  grid.innerHTML='';
+  ALL_ANALYSTS.forEach(a=>{
+    const sMatch=activeSector==='all'||a.sector===activeSector;
+    const aMatch=activeAnalyst==='all'||a.shortName===activeAnalyst;
+    const rMatch=activeRating==='all'
+      ||(activeRating==='banked'&&a.banked>0)
+      ||(activeRating==='Outperform'&&a.opPct>=75)
+      ||(activeRating==='Market Perform'&&a.opPct<75);
+    const active=sMatch&&aMatch&&rMatch;
+    const score=compositeScore(a);
+    const color=getScoreColor(score);
+    const card=document.createElement('div');
+    card.className='analyst-card'+(a.star?' star':'')+(active?'':' dimmed');
+    card.innerHTML=`
+      <div class="analyst-name">${a.name}</div>
+      <div class="analyst-sector-tag">${a.sector}</div>
+      <div class="analyst-stats">
+        <div class="stat-box"><div class="stat-val">${a.covered}</div><div class="stat-lbl">Companies</div></div>
+        <div class="stat-box"><div class="stat-val">${a.opPct}%</div><div class="stat-lbl">Outperform</div></div>
+        <div class="stat-box"><div class="stat-val" style="color:${teal}">${a.banked}</div><div class="stat-lbl">Banked</div></div>
+      </div>
+      <div class="score-bar-wrap">
+        <div class="score-label"><span>Composite score</span><span style="font-weight:600;color:${color}">${score}/100</span></div>
+        <div class="score-track"><div class="score-fill" style="width:${score}%;background:${color}"></div></div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function renderCross(activeSector,activeAnalyst,activeRating){
+  const tbody=document.getElementById('crossBody');
+  tbody.innerHTML='';
+  ALL_CROSS.forEach(r=>{
+    const sMatch=activeSector==='all'||r.sector===activeSector;
+    const aMatch=activeAnalyst==='all'||r.analyst===activeAnalyst;
+    const rMatch=activeRating==='all'||activeRating==='banked'||r.rating===activeRating;
+    const active=sMatch&&aMatch&&rMatch;
+    const tr=document.createElement('tr');
+    if(!active)tr.className='dimmed';
+    tr.innerHTML=`<td><strong>${r.co}</strong></td>
+      <td><span class="tag ${r.rating==='Outperform'?'t-op':'t-mp'}">${r.rating==='Outperform'?'Outperform':'Mkt Perform'}</span></td>
+      <td style="font-size:10px;color:#73726c">${r.sector}</td>
+      <td style="font-size:10px;color:#73726c">${r.banking}</td>
+      <td style="font-weight:600;color:${teal};text-align:center">${r.deals}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderChanges(activeSector){
+  const tbody=document.getElementById('changesBody');
+  tbody.innerHTML='';
+  ALL_CHANGES.forEach(r=>{
+    const active=activeSector==='all'||r.sector===activeSector;
+    const tr=document.createElement('tr');
+    if(!active)tr.className='dimmed';
+    tr.innerHTML=`<td><strong>${r.co}</strong></td>
+      <td><span class="tag ${r.r24==='Outperform'?'t-op':'t-mp'}">${r.r24}</span></td>
+      <td><span class="tag ${r.r25==='Outperform'?'t-op':r.r25==='Underperform'?'t-un':'t-mp'}">${r.r25}</span></td>
+      <td><span class="tag ${r.dir==='up'?'t-up':'t-dn'}">${r.dir==='up'?'▲ Up':'▼ Down'}</span></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// === CASCADING FILTER LOGIC ===
+
+function onSectorChange(){
+  const sector=document.getElementById('sectorFilter').value;
+
+  // Repopulate analyst dropdown filtered by sector
+  populateAnalysts(sector);
+
+  // Reset downstream
+  document.getElementById('ratingFilter').value='all';
+  document.getElementById('ratingFilter').disabled=true;
+
+  // Update notes
+  document.getElementById('sector-note').textContent=
+    sector==='all'?'Showing all sectors':`✓ Filtered to ${sector}`;
+  document.getElementById('sector-note').className=
+    sector==='all'?'cascade-note':'cascade-note active';
+  const count=sector==='all'?ALL_ANALYSTS.length:ALL_ANALYSTS.filter(a=>a.sector===sector).length;
+  document.getElementById('analyst-note').textContent=
+    `${count} analyst${count!==1?'s':''} available`;
+  document.getElementById('analyst-note').className='cascade-note active';
+  document.getElementById('rating-note').textContent='Select an analyst first';
+  document.getElementById('rating-note').className='cascade-note';
+
+  applyAll();
+}
+
+function onAnalystChange(){
+  const analyst=document.getElementById('analystFilter').value;
+  const ratingSel=document.getElementById('ratingFilter');
+  ratingSel.disabled=false;
+  ratingSel.value='all';
+  document.getElementById('rating-note').textContent=
+    analyst==='all'?'Rating applies across all analysts':`✓ Rating filtered within ${analyst}'s coverage`;
+  document.getElementById('rating-note').className=
+    analyst==='all'?'cascade-note':'cascade-note active';
+  applyAll();
+}
+
+function applyAll(){
+  const sector=document.getElementById('sectorFilter').value;
+  const analyst=document.getElementById('analystFilter').value;
+  const rating=document.getElementById('ratingFilter').value;
+
+  // KPI resolution — analyst takes priority over sector
+  const ad=analyst!=='all'?ANALYST_DATA[analyst]:null;
+  const sd=SECTOR_DATA[sector]||SECTOR_DATA['all'];
+  const d=ad||sd;
+
+  // Update KPIs
+  document.getElementById('k-total').textContent=d.total;
+  document.getElementById('k-sub').textContent=
+    analyst!=='all'?`${analyst}'s coverage · May 2025`:
+    sector!=='all'?`May 2025 · ${sector}`:'May 2025 · all sectors';
+  document.getElementById('k-delta').textContent=
+    analyst!=='all'?`${d.overlap} companies banked from coverage`:
+    sector!=='all'?'Filtered sector view':'▲ +15 vs July 2024';
+  document.getElementById('k-op').textContent=`${d.opPct}%`;
+  document.getElementById('k-op-sub').textContent=`${d.opN} Outperform · ${d.mpN} Mkt Perform`;
+  document.getElementById('k-overlap').textContent=d.overlap;
+  document.getElementById('k-ov-sub').textContent=
+    analyst!=='all'?'Banked from this analyst\'s coverage':'Full-service relationships';
+  document.getElementById('k-ov-pct').textContent=
+    `${Math.round(d.overlap/d.total*100)}% of filtered universe`;
+  document.getElementById('k-mcap').textContent=d.avgMcap;
+  document.getElementById('k-mcap-sub').textContent=
+    analyst!=='all'?`${analyst}'s avg market cap`:
+    sector!=='all'?'Sector average':'Coverage universe';
+
+  // Charts always use sector-level data
+  buildMcap(sd.mcap);
+  if(sector==='all'){
+    buildConviction(ALL_OP,ALL_MP,SECTOR_LABELS);
+  } else {
+    buildConviction([sd.opN],[sd.mpN],[sector]);
+  }
+
+  // Analyst scorecard, cross table, changes table
+  renderAnalysts(sector,analyst,rating);
+  renderCross(sector,analyst,rating);
+  renderChanges(sector);
+}
+
+function resetFilters(){
+  document.getElementById('sectorFilter').value='all';
+  populateAnalysts('all');
+  document.getElementById('ratingFilter').value='all';
+  document.getElementById('ratingFilter').disabled=true;
+  document.getElementById('sector-note').textContent='Select a sector to narrow analysts';
+  document.getElementById('sector-note').className='cascade-note';
+  document.getElementById('analyst-note').textContent='Showing all analysts';
+  document.getElementById('analyst-note').className='cascade-note';
+  document.getElementById('rating-note').textContent='Select an analyst first';
+  document.getElementById('rating-note').className='cascade-note';
+  applyAll();
+}
+
+// Init
+populateAnalysts('all');
+buildMcap(SECTOR_DATA.all.mcap);
+buildConviction(ALL_OP,ALL_MP,SECTOR_LABELS);
+renderAnalysts('all','all','all');
+renderCross('all','all','all');
+renderChanges('all');
+</script>
